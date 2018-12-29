@@ -5,7 +5,6 @@
 - 核心框架: SpringBoot2.0.3
 - 微服务框架:springCloud.Finchley.RELEASE
 - 数据持久层框架:mybatis
-- 数据库持久层简化:mybatis-plus
 - 分页简化:pageHelp
 - 安全控制:Spring-security
 - 数据库连接池:Alibaba Druid

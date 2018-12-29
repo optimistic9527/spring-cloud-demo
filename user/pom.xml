@@ -28,7 +28,7 @@
             <dependency>
                 <groupId>com.gxy</groupId>
                 <artifactId>user-common</artifactId>
-                <version>${user-common.version}</version>
+                <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
