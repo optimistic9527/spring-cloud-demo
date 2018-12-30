@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: config
+        enabled: true
+      name: store-config

@@ -1,18 +1,13 @@
 server:
-  port: 9003
+  port: 9001
 spring:
   application:
-    name: user
-  http:
-    encoding:
-      force: true
-      charset: UTF-8
-      enabled: true
+    name: order
   datasource:
      driver-class-name: com.mysql.jdbc.Driver
      username: root
      password: gxy123456.
-     url: jdbc:mysql://127.0.0.1:3306/user?characterEncoding=utf-8&useSSL=false
+     url: jdbc:mysql://127.0.0.1:3306/order?characterEncoding=utf-8&useSSL=false
      druid:
         # 配置初始化大小、最小、最大
         initial-size: 1
@@ -47,11 +42,12 @@ spring:
           exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
 logging:
   level:
-    com.gxy.user.mapper: DEBUG
+    #开启debug调试sql
+    com.gxy.order.mapper: DEBUG
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
   instance:
       ip-address: 127.0.0.1
       prefer-ip-address: true

@@ -58,9 +58,11 @@
         </dependencies>
     </dependencyManagement>
     <modules>
-        <module>./user</module>
-        <module>./order</module>
-        <module>./register</module>
-        <module>./store</module>
+        <module>user</module>
+        <module>order</module>
+        <module>register</module>
+        <module>store</module>
+        <module>common</module>
+        <module>config</module>
     </modules>
 </project>

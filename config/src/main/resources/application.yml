@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config
+  profiles:
+    active: native #如果使用本地仓库集合吧设置为native
+  cloud:
+    config:
+      server:
+        native: #这里只能叫config要不然找不到,可以替换成git的远程仓库的方式，方便版本管理，远程仓库以config-repo- 开头
+          search-locations: classpath:/config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 9000
