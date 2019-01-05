@@ -1,20 +1,11 @@
 package com.gxy.user.mapper;
 
 import com.gxy.user.entity.User;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
-* Created by Mybatis Generator 2018/12/29
-*/
-public interface UserMapper {
-    int deleteByPrimaryKey(Long userId);
+ * Created by Mybatis Generator 2019/01/03
+ */
+public interface UserMapper extends Mapper<User> {
 
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(Long userId);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }

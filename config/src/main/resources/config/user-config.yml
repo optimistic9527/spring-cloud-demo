@@ -51,3 +51,6 @@ eureka:
       ip-address: 127.0.0.1
       prefer-ip-address: true
       instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
+snowFlakeIdGenerator:
+  workerId: 2
+  dataCenterId: 2

@@ -1,20 +1,10 @@
 package com.gxy.store.mapper;
 
 import com.gxy.store.entity.Store;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
-* Created by Mybatis Generator 2018/12/29
+* Created by Mybatis Generator 2019/01/03
 */
-public interface StoreMapper {
-    int deleteByPrimaryKey(Long storeId);
-
-    int insert(Store record);
-
-    int insertSelective(Store record);
-
-    Store selectByPrimaryKey(Long storeId);
-
-    int updateByPrimaryKeySelective(Store record);
-
-    int updateByPrimaryKey(Store record);
+public interface StoreMapper extends Mapper<Store> {
 }

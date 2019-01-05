@@ -1,39 +1,14 @@
 package com.gxy.user.service;
 
+import com.gxy.common.base.BaseService;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import java.util.List;
 import com.gxy.user.entity.Merchant;
 import com.gxy.user.mapper.MerchantMapper;
 
+import javax.annotation.Resource;
+
 @Service
-public class MerchantService{
+public class MerchantService extends BaseService<MerchantMapper,Merchant> {
 
-    @Resource
-    private MerchantMapper merchantMapper;
-
-    public int deleteByPrimaryKey(Long merchantId){
-        return merchantMapper.deleteByPrimaryKey(merchantId);
-    }
-
-    public int insert(Merchant record){
-        return merchantMapper.insert(record);
-    }
-
-    public int insertSelective(Merchant record){
-        return merchantMapper.insertSelective(record);
-    }
-
-    public Merchant selectByPrimaryKey(Long merchantId){
-        return merchantMapper.selectByPrimaryKey(merchantId);
-    }
-
-    public int updateByPrimaryKeySelective(Merchant record){
-        return merchantMapper.updateByPrimaryKeySelective(record);
-    }
-
-    public int updateByPrimaryKey(Merchant record){
-        return merchantMapper.updateByPrimaryKey(record);
-    }
 
 }

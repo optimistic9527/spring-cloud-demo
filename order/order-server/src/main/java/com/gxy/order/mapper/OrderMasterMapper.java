@@ -1,20 +1,11 @@
 package com.gxy.order.mapper;
 
 import com.gxy.order.entity.OrderMaster;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
-* Created by Mybatis Generator 2018/12/29
+* Created by Mybatis Generator 2019/01/03
 */
-public interface OrderMasterMapper {
-    int deleteByPrimaryKey(Long orderId);
+public interface OrderMasterMapper extends Mapper<OrderMaster> {
 
-    int insert(OrderMaster record);
-
-    int insertSelective(OrderMaster record);
-
-    OrderMaster selectByPrimaryKey(Long orderId);
-
-    int updateByPrimaryKeySelective(OrderMaster record);
-
-    int updateByPrimaryKey(OrderMaster record);
 }

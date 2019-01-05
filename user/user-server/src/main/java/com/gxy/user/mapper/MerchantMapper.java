@@ -1,20 +1,10 @@
 package com.gxy.user.mapper;
 
 import com.gxy.user.entity.Merchant;
+import tk.mybatis.mapper.common.Mapper;
 
 /**
-* Created by Mybatis Generator 2018/12/29
+* Created by Mybatis Generator 2019/01/05
 */
-public interface MerchantMapper {
-    int deleteByPrimaryKey(Long merchantId);
-
-    int insert(Merchant record);
-
-    int insertSelective(Merchant record);
-
-    Merchant selectByPrimaryKey(Long merchantId);
-
-    int updateByPrimaryKeySelective(Merchant record);
-
-    int updateByPrimaryKey(Merchant record);
+public interface MerchantMapper extends Mapper<Merchant> {
 }

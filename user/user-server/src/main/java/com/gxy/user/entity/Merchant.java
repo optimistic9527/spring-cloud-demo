@@ -1,57 +1,56 @@
 package com.gxy.user.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 import lombok.Data;
 
 /**
-* Created by Mybatis Generator 2018/12/29
+* Created by Mybatis Generator 2019/01/05
 */
 @Data
+@Table(name = "`merchant`")
 public class Merchant implements Serializable {
     /**
-	* 商户唯一标识
-	*/
+     * 商户唯一标识
+     */
+    @Id
+    @Column(name = "`merchant_id`")
     private Long merchantId;
 
     /**
-	* 昵称
-	*/
+     * 昵称
+     */
+    @Column(name = "`nickname`")
     private String nickname;
 
     /**
-	* 商户名称
-	*/
+     * 商户名称
+     */
+    @Column(name = "`username`")
     private String username;
 
     /**
-	* 密码
-	*/
+     * 密码
+     */
+    @Column(name = "`password`")
     private String password;
 
     /**
-	* 商户手机号
-	*/
+     * 商户手机号
+     */
+    @Column(name = "`phone`")
     private String phone;
 
     /**
-	* 上次修改时间
-	*/
-    private LocalDateTime lastModifyTime;
-
-    /**
-	* 上次登录时间
-	*/
-    private LocalDateTime lostLoginTime;
-
-    /**
-	* 商铺编号
-	*/
+     * 商铺编号
+     */
+    @Column(name = "`store_id`")
     private Long storeId;
 
     /**
-	* 是否激活 1为激活0为未激活
-	*/
+     * 是否激活 1为激活0为未激活
+     */
+    @Column(name = "`active`")
     private Integer active;
 
     private static final long serialVersionUID = 1L;
