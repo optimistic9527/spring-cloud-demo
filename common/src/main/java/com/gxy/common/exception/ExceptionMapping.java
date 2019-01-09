@@ -1,4 +1,4 @@
-package com.gxy.common.constant;
+package com.gxy.common.exception;
 
 import com.google.common.collect.ImmutableMap;
 import com.gxy.common.enums.ResultCodeEnum;

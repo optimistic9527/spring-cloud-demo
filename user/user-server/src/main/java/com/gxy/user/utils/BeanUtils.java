@@ -1,7 +1,7 @@
 package com.gxy.user.utils;
 
-import com.gxy.dto.MerchantInfoOutput;
-import com.gxy.dto.UserInfoOutput;
+import com.gxy.store.dto.output.MerchantInfoOutput;
+import com.gxy.store.dto.output.UserInfoOutput;
 import com.gxy.user.entity.Merchant;
 import com.gxy.user.entity.User;
 

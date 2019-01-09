@@ -42,7 +42,8 @@ spring:
           exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
 logging:
   level:
-    com.gxy.store.mapper: DEBUG
+    com.gxy.store.mapper: DEBUG  #开启feign的debug进行调试，生产中关闭
+    org.springframework.cloud.openfeign: DEBUG
 eureka:
   client:
     service-url:
@@ -54,3 +55,12 @@ eureka:
 snowFlakeIdGenerator:
   workerId: 1
   dataCenterId: 1
+feign:
+  hystrix:
+    enabled: true #开启hystrix进行熔断保护
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: FULL

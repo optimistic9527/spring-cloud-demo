@@ -1,4 +1,4 @@
-package com.gxy.dto;
+package com.gxy.store.dto.input;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;

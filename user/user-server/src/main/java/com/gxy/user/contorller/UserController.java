@@ -3,8 +3,8 @@ package com.gxy.user.contorller;
 import com.gxy.common.enums.ResultCodeEnum;
 import com.gxy.common.utils.SnowFlakeIdGenerator;
 import com.gxy.common.vo.ResultVO;
-import com.gxy.dto.UserInfoInput;
-import com.gxy.user.config.SnowFlakeIdGeneratorConfig;
+import com.gxy.store.dto.input.UserInfoInput;
+import com.gxy.store.dto.output.UserInfoOutput;
 import com.gxy.user.entity.User;
 import com.gxy.user.exception.UserException;
 import com.gxy.user.service.UserService;
@@ -30,7 +30,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{userId}")
-    public ResultVO acquireUserInfo(@PathVariable("userId") String userId) {
+    public ResultVO<UserInfoOutput> acquireUserInfo(@PathVariable("userId") Long userId) {
         User user = userService.findById(userId);
         if (user == null) {
             throw new UserException(ResultCodeEnum.USER_NOT_EXIST);

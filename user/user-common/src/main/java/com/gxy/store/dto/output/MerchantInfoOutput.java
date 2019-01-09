@@ -1,4 +1,4 @@
-package com.gxy.dto;
+package com.gxy.store.dto.output;
 
 import lombok.Data;
 

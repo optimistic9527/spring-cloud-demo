@@ -1,10 +1,11 @@
 package com.gxy.store.contorller.advice;
 
-import com.gxy.common.constant.ExceptionMapping;
+import com.gxy.common.exception.ExceptionMapping;
 import com.gxy.common.enums.ResultCodeEnum;
 import com.gxy.common.vo.ResultVO;
 import com.gxy.store.exception.StoreException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -33,5 +34,12 @@ public class StoreExceptionHandler {
         }
         log.error("unknown error", exception);
         return ResultVO.failure(ResultCodeEnum.SYSTEM_UNKNOWN_ERROR);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResultVO methodArgumentNotValidException(MethodArgumentNotValidException methodArgumentNotValidException) {
+        String defaultMessage = methodArgumentNotValidException.getBindingResult().getAllErrors().get(0).getDefaultMessage();
+        log.info("methodArgumentNotValidException,message:{}", methodArgumentNotValidException.getMessage());
+        return ResultVO.failure(defaultMessage);
     }
 }

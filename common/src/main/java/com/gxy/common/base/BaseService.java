@@ -3,7 +3,6 @@ package com.gxy.common.base;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.common.BaseMapper;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**

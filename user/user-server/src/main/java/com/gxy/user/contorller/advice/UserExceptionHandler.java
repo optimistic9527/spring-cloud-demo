@@ -1,6 +1,6 @@
 package com.gxy.user.contorller.advice;
 
-import com.gxy.common.constant.ExceptionMapping;
+import com.gxy.common.exception.ExceptionMapping;
 import com.gxy.common.enums.ResultCodeEnum;
 import com.gxy.common.vo.ResultVO;
 import com.gxy.user.exception.UserException;
