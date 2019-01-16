@@ -1,16 +1,11 @@
 package com.gxy.store.mapper;
-import org.apache.ibatis.annotations.Param;
-import java.util.List;
 
 import com.gxy.store.entity.StoreGoods;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Param;import tk.mybatis.mapper.common.Mapper;import java.util.List;
 
 /**
-* Created by Mybatis Generator 2019/01/03
-*/
+ * Created by Mybatis Generator 2019/01/16
+ */
 public interface StoreGoodsMapper extends Mapper<StoreGoods> {
-
-    List<StoreGoods> findByStoreId(@Param("storeId")Long storeId);
-
-
+    List<StoreGoods> findByStoreId(@Param("storeId") Long storeId);
 }

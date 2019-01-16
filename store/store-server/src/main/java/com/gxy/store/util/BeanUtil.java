@@ -1,5 +1,6 @@
 package com.gxy.store.util;
 
+import com.gxy.store.dto.StoreDTO;
 import com.gxy.store.dto.output.StoreGoodsInfoOutput;
 import com.gxy.store.dto.output.StoreInfoOutput;
 import com.gxy.store.entity.Store;
@@ -26,6 +27,21 @@ public abstract class BeanUtil extends BeanUtils {
         }
         StoreInfoOutput storeInfoOutput = new StoreInfoOutput();
         copyProperties(store, storeInfoOutput);
+        return storeInfoOutput;
+    }
+
+    /**
+     * @param storeDTO not null store entity
+     * @return StoreInfoOutput
+     */
+    public static StoreInfoOutput createStoreInfoOutput(StoreDTO storeDTO) {
+        if (storeDTO == null) {
+            return null;
+        }
+        StoreInfoOutput storeInfoOutput = new StoreInfoOutput();
+        copyProperties(storeDTO, storeInfoOutput);
+        List<StoreGoodsInfoOutput> storeInfoOutPut = createStoreInfoOutPut(storeDTO.getStoreGoodsList());
+        storeInfoOutput.setStoreGoodsInfoOutputs(storeInfoOutPut);
         return storeInfoOutput;
     }
 
