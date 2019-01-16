@@ -10,13 +10,12 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="store_id" jdbcType="BIGINT" property="storeId" />
     <result column="active" jdbcType="TINYINT" property="active" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
       WARNING - @mbg.generated
     -->
-    merchant_id, nickname, username, `password`, phone, store_id, active
+    merchant_id, nickname, username, `password`, phone, active
   </sql>
 </mapper>

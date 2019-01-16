@@ -8,14 +8,14 @@ import com.gxy.store.dto.output.UserInfoOutput;
 import com.gxy.user.entity.User;
 import com.gxy.user.exception.UserException;
 import com.gxy.user.service.UserService;
-import com.gxy.user.utils.BeanUtils;
+import com.gxy.user.utils.BeanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import static com.gxy.user.utils.BeanUtils.createUserInfoOutput;
+import static com.gxy.user.utils.BeanUtil.createUserInfoOutput;
 
 /**
  * @author guoxingyong
@@ -42,7 +42,7 @@ public class UserController {
     public ResultVO addUser(@Valid @RequestBody UserInfoInput userInfoInput){
         //todo 沒有校驗唯一性,为了方便所以业务在这里写了，正式需要移动到Service中，其他同
         User user=new User();
-        BeanUtils.copyProperties(userInfoInput,user);
+        BeanUtil.copyProperties(userInfoInput,user);
         long id = snowFlakeIdGenerator.nextId();
         user.setUserId(id);
         user.setMoney(0);

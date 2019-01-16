@@ -22,6 +22,7 @@
         <java.version>1.8</java.version>
         <skipTests>true</skipTests>
         <fastjson>1.2.49</fastjson>
+        <com.gxy.version>1.0.0</com.gxy.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -33,7 +34,7 @@
             <dependency>
                 <groupId>com.gxy</groupId>
                 <artifactId>common</artifactId>
-                <version>1.0.0</version>
+                <version>${com.gxy.version}</version>
             </dependency>
             <dependency>
                 <groupId>tk.mybatis</groupId>

@@ -5,28 +5,28 @@ import javax.persistence.*;
 import lombok.Data;
 
 /**
-* Created by Mybatis Generator 2019/01/05
-*/
+ * Created by Mybatis Generator 2019/01/16
+ */
 @Data
-@Table(name = "`merchant`")
+@Table(name = "merchant")
 public class Merchant implements Serializable {
     /**
      * 商户唯一标识
      */
     @Id
-    @Column(name = "`merchant_id`")
+    @Column(name = "merchant_id")
     private Long merchantId;
 
     /**
      * 昵称
      */
-    @Column(name = "`nickname`")
+    @Column(name = "nickname")
     private String nickname;
 
     /**
      * 商户名称
      */
-    @Column(name = "`username`")
+    @Column(name = "username")
     private String username;
 
     /**
@@ -38,19 +38,13 @@ public class Merchant implements Serializable {
     /**
      * 商户手机号
      */
-    @Column(name = "`phone`")
+    @Column(name = "phone")
     private String phone;
-
-    /**
-     * 商铺编号
-     */
-    @Column(name = "`store_id`")
-    private Long storeId;
 
     /**
      * 是否激活 1为激活0为未激活
      */
-    @Column(name = "`active`")
+    @Column(name = "active")
     private Integer active;
 
     private static final long serialVersionUID = 1L;

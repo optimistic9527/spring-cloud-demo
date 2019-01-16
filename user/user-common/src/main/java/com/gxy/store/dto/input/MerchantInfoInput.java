@@ -45,13 +45,6 @@ public class MerchantInfoInput {
     @Pattern(regexp = "^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$", message = "手机号格式不正确", groups = {AddMerchant.class, UpdateMerchant.class})
     private String phone;
 
-
-    /**
-     * 商铺编号
-     */
-    @NotNull(message = "商店id不能为null", groups = {UpdateMerchant.class})
-    private Long storeId;
-
     public interface AddMerchant { }
 
     public interface UpdateMerchant { }

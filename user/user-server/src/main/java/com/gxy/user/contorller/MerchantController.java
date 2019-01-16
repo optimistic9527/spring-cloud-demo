@@ -8,7 +8,7 @@ import com.gxy.store.dto.output.MerchantInfoOutput;
 import com.gxy.user.entity.Merchant;
 import com.gxy.user.exception.UserException;
 import com.gxy.user.service.MerchantService;
-import com.gxy.user.utils.BeanUtils;
+import com.gxy.user.utils.BeanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -34,14 +34,14 @@ public class MerchantController {
         if (merchant == null) {
             throw new UserException(ResultCodeEnum.USER_NOT_EXIST);
         }
-        return ResultVO.success(BeanUtils.createMerchantInfoOutput(merchant));
+        return ResultVO.success(BeanUtil.createMerchantInfoOutput(merchant));
     }
 
     @PostMapping("/addMerchant")
     public ResultVO addUser(@Validated({MerchantInfoInput.AddMerchant.class}) @RequestBody MerchantInfoInput merchantInfoInput) {
         Merchant merchant = new Merchant();
         merchant.setMerchantId(snowFlakeIdGenerator.nextId());
-        BeanUtils.copyProperties(merchantInfoInput, merchant);
+        BeanUtil.copyProperties(merchantInfoInput, merchant);
         merchant.setActive(1);
         if (merchantService.add(merchant) == 0) {
             throw new UserException("创建商户失败");
@@ -51,9 +51,9 @@ public class MerchantController {
 
     @PostMapping("/updateMerchant")
     public ResultVO updateUser(@Validated({MerchantInfoInput.UpdateMerchant.class}) @RequestBody MerchantInfoInput merchantInfoInput) {
-        Merchant merchant=new Merchant();
-        BeanUtils.copyProperties(merchantInfoInput,merchant);
-        if(merchantService.modifyByIdSelective(merchant)==0){
+        Merchant merchant = new Merchant();
+        BeanUtil.copyProperties(merchantInfoInput, merchant);
+        if (merchantService.modifyByIdSelective(merchant) == 0) {
             throw new UserException("修改商户失败");
         }
         return ResultVO.success();

@@ -26,10 +26,5 @@ public class MerchantInfoOutput {
      */
     private String phone;
 
-    /**
-     * 商铺编号
-     */
-    private Long storeId;
-
 }
 
