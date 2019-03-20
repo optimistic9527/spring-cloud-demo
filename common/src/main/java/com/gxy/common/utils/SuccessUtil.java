@@ -8,7 +8,10 @@ import com.gxy.common.vo.ResultVO;
  */
 public final class SuccessUtil {
 
-    public static boolean isFail(ResultVO resultVO){
+    public static boolean isFail(ResultVO resultVO) {
+        if (resultVO == null) {
+            return true;
+        }
         return resultVO.getCode() != 200;
     }
 }

@@ -2,18 +2,18 @@ server:
   port: 9001
 spring:
   datasource:
-     driver-class-name: com.mysql.jdbc.Driver
-     username: root
-     password: gxy123456.
-     url: jdbc:mysql://127.0.0.1:3306/order?characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: gxy123456.
+    url: jdbc:mysql://127.0.0.1:3306/order?characterEncoding=utf-8&useSSL=false
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/
   instance:
-      ip-address: 127.0.0.1
-      prefer-ip-address: true
-      instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
 snowFlakeIdGenerator:
   workerId: 0
   dataCenterId: 0

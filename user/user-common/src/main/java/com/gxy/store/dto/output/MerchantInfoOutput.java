@@ -3,7 +3,6 @@ package com.gxy.store.dto.output;
 import lombok.Data;
 
 
-
 @Data
 public class MerchantInfoOutput {
     /**

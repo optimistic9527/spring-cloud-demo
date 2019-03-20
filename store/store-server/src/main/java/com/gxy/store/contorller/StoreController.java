@@ -27,8 +27,6 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
     @Autowired
-    private StoreGoodsService storeGoodsService;
-    @Autowired
     private SnowFlakeIdGenerator snowFlakeIdGenerator;
     @Autowired
     private MerchantFeignClient merchantFeignClient;
@@ -36,14 +34,14 @@ public class StoreController {
     @PostMapping("/addStore")
     public ResultVO createStore(@Valid @RequestBody StoreInfoInput storeInfoInput) {
         ResultVO<MerchantInfoOutput> merchantInfoOutputResultVO = merchantFeignClient.acquireMerchantInfo(storeInfoInput.getMerchantId());
-        if(SuccessUtil.isFail(merchantInfoOutputResultVO)){
+        if (SuccessUtil.isFail(merchantInfoOutputResultVO)) {
             return merchantInfoOutputResultVO;
         }
         Store store = new Store();
         BeanUtils.copyProperties(storeInfoInput, store);
         long storeId = snowFlakeIdGenerator.nextId();
         store.setStoreId(storeId);
-        if(storeService.add(store)>0){
+        if (storeService.add(store) > 0) {
             return ResultVO.success();
         }
         return ResultVO.failure("创建商店失败");

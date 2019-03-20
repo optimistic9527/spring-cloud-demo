@@ -28,6 +28,9 @@ public class StoreService extends BaseService<StoreMapper, Store> {
 
     public StoreInfoOutput findStoreInfoOutputById(long storeId) {
         StoreDTO storeDTO = storeMapper.findOneByStoreId(storeId);
+        if(storeDTO==null){
+            throw new StoreException("门店不存在");
+        }
         ResultVO<MerchantInfoOutput> merchantInfoOutputResultVO = merchantFeignClient.acquireMerchantInfo(storeDTO.getMerchantId());
         if (SuccessUtil.isFail(merchantInfoOutputResultVO)) {
             throw new StoreException(merchantInfoOutputResultVO.getMsg());

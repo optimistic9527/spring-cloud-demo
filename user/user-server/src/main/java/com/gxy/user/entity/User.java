@@ -1,12 +1,12 @@
 package com.gxy.user.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import lombok.Data;
 
-/**
-* Created by Mybatis Generator 2019/01/03
-*/
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 @Data
 @Table(name = "`user`")
 public class User implements Serializable {
@@ -14,19 +14,19 @@ public class User implements Serializable {
      * 用户id
      */
     @Id
-    @Column(name = "`user_id`")
+    @Column(name = "user_id")
     private Long userId;
 
     /**
-     * 用户名称
+     * 用户昵称
      */
-    @Column(name = "`nickname`")
+    @Column(name = "nickname")
     private String nickname;
 
     /**
      * 用户名称
      */
-    @Column(name = "`username`")
+    @Column(name = "username")
     private String username;
 
     /**
@@ -38,26 +38,20 @@ public class User implements Serializable {
     /**
      * 用户手机号
      */
-    @Column(name = "`phone`")
+    @Column(name = "phone")
     private String phone;
 
     /**
      * 用户剩余金额
      */
-    @Column(name = "`money`")
+    @Column(name = "money")
     private Integer money;
 
     /**
      * 是否激活 1为激活0为未激活
      */
-    @Column(name = "`active`")
+    @Column(name = "active")
     private Integer active;
-
-    /**
-     * 冻结资金
-     */
-    @Column(name = "`freeze_money`")
-    private Integer freezeMoney;
 
     private static final long serialVersionUID = 1L;
 }

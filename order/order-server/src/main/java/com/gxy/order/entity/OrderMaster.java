@@ -1,13 +1,16 @@
 package com.gxy.order.entity;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-import javax.persistence.*;
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 /**
-* Created by Mybatis Generator 2019/01/03
-*/
+ * Created by Mybatis Generator 2019/01/03
+ */
 @Data
 @Table(name = "`order_master`")
 public class OrderMaster implements Serializable {

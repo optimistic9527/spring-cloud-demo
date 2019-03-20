@@ -7,13 +7,14 @@ import java.util.List;
 
 /**
  * 单表通用service
+ *
  * @author guoxingyong
  * @since 2019/1/3 21:14
  */
-public abstract class BaseService<M extends BaseMapper<T>, T> {
+public abstract class BaseService<M extends BaseMapper<T>, T>{
 
     @Autowired
-    private M baseMapper;
+    protected M baseMapper;
 
     /**
      * 根据实体中的属性进行查询，只能有一个返回值，有多个结果是抛出异常，查询条件使用等号

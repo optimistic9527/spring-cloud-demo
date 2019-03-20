@@ -45,8 +45,10 @@ public class MerchantInfoInput {
     @Pattern(regexp = "^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$", message = "手机号格式不正确", groups = {AddMerchant.class, UpdateMerchant.class})
     private String phone;
 
-    public interface AddMerchant { }
+    public interface AddMerchant {
+    }
 
-    public interface UpdateMerchant { }
+    public interface UpdateMerchant {
+    }
 }
 

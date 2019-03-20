@@ -12,12 +12,11 @@
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
         <result column="money" jdbcType="INTEGER" property="money"/>
         <result column="active" jdbcType="TINYINT" property="active"/>
-        <result column="freeze_money" jdbcType="INTEGER" property="freezeMoney"/>
     </resultMap>
     <sql id="Base_Column_List">
         <!--
           WARNING - @mbg.generated
         -->
-        user_id, nickname, username, `password`, phone, money, active, freeze_money
+        user_id, nickname, username, `password`, phone, money, active
     </sql>
 </mapper>

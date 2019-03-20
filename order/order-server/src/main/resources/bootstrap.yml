@@ -44,3 +44,15 @@ logging:
   level:
     #开启debug调试sql
     com.gxy.order.mapper: DEBUG
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+# 默认之配置为TM的本机默认端口
+tx-lcn:
+  client:
+    manager-address: 127.0.0.1:8070
+  logger:
+    enabled: true
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-manager?characterEncoding=UTF-8
+    username: root
+    password: gxy123456.

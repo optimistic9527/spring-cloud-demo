@@ -21,6 +21,6 @@ public interface UserFeignClient {
     String API_PATH = "/user";
 
     @RequestMapping(value = API_PATH + "/{userId}", method = RequestMethod.GET)
-    ResultVO<UserInfoOutput> acquireUserInfo(@PathVariable("userId") String userId);
+    ResultVO<UserInfoOutput> acquireUserInfo(@PathVariable("userId") Long userId);
 
 }

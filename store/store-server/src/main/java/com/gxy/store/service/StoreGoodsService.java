@@ -1,19 +1,21 @@
 package com.gxy.store.service;
 
+import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.gxy.common.base.BaseService;
+import com.gxy.store.dto.input.PurchaseDetail;
 import com.gxy.store.entity.StoreGoods;
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import java.util.List;
 import com.gxy.store.mapper.StoreGoodsMapper;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
-public class StoreGoodsService extends BaseService<StoreGoodsMapper,StoreGoods> {
-    @Resource
-    private StoreGoodsMapper storeGoodsMapper;
+public class StoreGoodsService extends BaseService<StoreGoodsMapper, StoreGoods> {
 
 
-    public List<StoreGoods> findByStoreId(Long storeId){
-        return storeGoodsMapper.findByStoreId(storeId);
+
+    @LcnTransaction
+    public void reduceInventory(List<PurchaseDetail> purchaseDetailList) {
+        purchaseDetailList.forEach(purchaseDetail -> baseMapper.reduceInventory(purchaseDetail.getGoodsId(), purchaseDetail.getCount()));
     }
 }

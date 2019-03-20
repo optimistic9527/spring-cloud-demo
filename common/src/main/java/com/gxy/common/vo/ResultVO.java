@@ -2,12 +2,14 @@ package com.gxy.common.vo;
 
 import com.gxy.common.enums.ResultCodeEnum;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * @author guoxingyong
  * @since 2019/1/3 20:11
  */
 @Getter
+@ToString
 public class ResultVO<T> {
     /**
      * result code
@@ -34,7 +36,7 @@ public class ResultVO<T> {
      * @return ResultVO
      */
     public static ResultVO success() {
-        return buildResultVO(ResultCodeEnum.SUCCESS.getCode(),ResultCodeEnum.SUCCESS.getMessage());
+        return buildResultVO(ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMessage());
     }
 
     /**
@@ -58,7 +60,7 @@ public class ResultVO<T> {
      * @return ResultVO
      */
     public static ResultVO failure(ResultCodeEnum resultCodeEnum) {
-        return buildResultVO(resultCodeEnum.getCode(),resultCodeEnum.getMessage());
+        return buildResultVO(resultCodeEnum.getCode(), resultCodeEnum.getMessage());
     }
 
     /**
@@ -68,7 +70,7 @@ public class ResultVO<T> {
      * @return ResultVO
      */
     public static ResultVO failure(String errorMessage) {
-        return buildResultVO(500,errorMessage);
+        return buildResultVO(500, errorMessage);
     }
 
 
@@ -79,7 +81,7 @@ public class ResultVO<T> {
      * @return ResultVO
      */
     public static ResultVO failure(Integer code, String errorMessage) {
-        return buildResultVO(code,errorMessage);
+        return buildResultVO(code, errorMessage);
     }
 
     private static ResultVO buildResultVO(Integer code, String errorMessage) {

@@ -2,6 +2,7 @@ package com.gxy.store.contorller;
 
 import com.gxy.common.utils.SnowFlakeIdGenerator;
 import com.gxy.common.vo.ResultVO;
+import com.gxy.store.dto.input.PurchaseDetail;
 import com.gxy.store.dto.input.StoreGoodsInfo;
 import com.gxy.store.entity.StoreGoods;
 import com.gxy.store.service.StoreGoodsService;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author guoxingyong
@@ -34,5 +38,11 @@ public class StoreGoodsController {
             return ResultVO.success();
         }
         return ResultVO.failure("添加商品失败");
+    }
+
+    @PostMapping("/reduceInventory") //fixme 这里没有保证幂等性,可以添加动作唯一id进行避免
+    public ResultVO reduceInventory(@Valid @RequestBody List<PurchaseDetail> purchaseDetailList) {
+        storeGoodsService.reduceInventory(purchaseDetailList);
+        return ResultVO.success();
     }
 }

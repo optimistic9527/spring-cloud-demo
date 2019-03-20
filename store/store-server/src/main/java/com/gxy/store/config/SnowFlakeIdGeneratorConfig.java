@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 构建SnowFlakeIdGenerator类,为module提供id生成工具
+ *
  * @author guoxingyong
  * @since 2019/1/3 20:42
  */
@@ -21,7 +22,7 @@ public class SnowFlakeIdGeneratorConfig {
 
 
     @Bean
-    public SnowFlakeIdGenerator snowFlakeIdGenerator(){
-        return new SnowFlakeIdGenerator(workerId,dataCenterId);
+    public SnowFlakeIdGenerator snowFlakeIdGenerator() {
+        return new SnowFlakeIdGenerator(workerId, dataCenterId);
     }
 }

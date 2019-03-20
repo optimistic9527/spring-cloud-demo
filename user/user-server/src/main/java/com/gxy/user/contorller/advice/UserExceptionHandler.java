@@ -1,7 +1,7 @@
 package com.gxy.user.contorller.advice;
 
-import com.gxy.common.exception.ExceptionMapping;
 import com.gxy.common.enums.ResultCodeEnum;
+import com.gxy.common.exception.ExceptionMapping;
 import com.gxy.common.vo.ResultVO;
 import com.gxy.user.exception.UserException;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * user模块的统一异常处理中心
+ *
  * @author guoxingyong
  * @since 2019/1/4 16:17
  */
@@ -31,7 +32,7 @@ public class UserExceptionHandler {
             log.info("EXCEPTION_MAPPINGS,message:{}", resultCodeEnum.getMessage());
             return ResultVO.failure(resultCodeEnum);
         }
-        log.error("unknown error",exception);
+        log.error("unknown error", exception);
         return ResultVO.failure(ResultCodeEnum.SYSTEM_UNKNOWN_ERROR);
     }
 

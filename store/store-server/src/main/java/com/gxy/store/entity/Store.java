@@ -1,12 +1,15 @@
 package com.gxy.store.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import lombok.Data;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 /**
-* Created by Mybatis Generator 2019/01/03
-*/
+ * Created by Mybatis Generator 2019/01/03
+ */
 @Data
 @Table(name = "`store`")
 public class Store implements Serializable {

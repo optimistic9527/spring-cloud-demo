@@ -19,7 +19,7 @@ public class SnowFlakeIdGeneratorConfig {
     private Integer dataCenterId;
 
     @Bean
-    public SnowFlakeIdGenerator snowFlakeIdGenerator(){
-        return new SnowFlakeIdGenerator(workerId,dataCenterId);
+    public SnowFlakeIdGenerator snowFlakeIdGenerator() {
+        return new SnowFlakeIdGenerator(workerId, dataCenterId);
     }
 }

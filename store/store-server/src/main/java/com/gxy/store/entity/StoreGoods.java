@@ -1,12 +1,12 @@
 package com.gxy.store.entity;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import lombok.Data;
 
-/**
- * Created by Mybatis Generator 2019/01/16
- */
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 @Data
 @Table(name = "store_goods")
 public class StoreGoods implements Serializable {
@@ -40,12 +40,6 @@ public class StoreGoods implements Serializable {
      */
     @Column(name = "store_id")
     private Long storeId;
-
-    /**
-     * 冻结库存
-     */
-    @Column(name = "freeze_inventory")
-    private Integer freezeInventory;
 
     private static final long serialVersionUID = 1L;
 }

@@ -26,10 +26,17 @@
     </sql>
 
     <select id="findOneByStoreId" resultMap="StoreDTOResultMap">
-        select
-            store.store_id,store.name,store.describe,store.merchant_id,
-            store_goods.goods_id,store_goods.goods_name,store_goods.price,store_goods.inventory,store_goods.store_id,store_goods.freeze_inventory
-        from `store` left join store_goods on store.store_id=store_goods.store_id
-        where store.store_id=#{storeId,jdbcType=BIGINT}
+        select store.store_id,
+               store.name,
+               store.describe,
+               store.merchant_id,
+               store_goods.goods_id,
+               store_goods.goods_name,
+               store_goods.price,
+               store_goods.inventory,
+               store_goods.store_id
+        from `store`
+                 left join store_goods on store.store_id = store_goods.store_id
+        where store.store_id = #{storeId,jdbcType=BIGINT}
     </select>
 </mapper>

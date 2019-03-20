@@ -39,16 +39,15 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public ResultVO addUser(@Valid @RequestBody UserInfoInput userInfoInput){
-        //todo 沒有校驗唯一性,为了方便所以业务在这里写了，正式需要移动到Service中，其他同
-        User user=new User();
-        BeanUtil.copyProperties(userInfoInput,user);
+    public ResultVO addUser(@Valid @RequestBody UserInfoInput userInfoInput) {
+        //fixme 沒有校驗唯一性,为了方便所以业务在这里写了，正式需要移动到Service中，其他同
+        User user = new User();
+        BeanUtil.copyProperties(userInfoInput, user);
         long id = snowFlakeIdGenerator.nextId();
         user.setUserId(id);
         user.setMoney(0);
         user.setActive(1);
-        user.setFreezeMoney(0);
-        if(userService.add(user)==0){
+        if (userService.add(user) == 0) {
             throw new UserException("创建用户失败");
         }
         return ResultVO.success();

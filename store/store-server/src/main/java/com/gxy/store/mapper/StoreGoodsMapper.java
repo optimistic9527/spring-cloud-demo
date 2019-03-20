@@ -1,11 +1,13 @@
 package com.gxy.store.mapper;
 
 import com.gxy.store.entity.StoreGoods;
-import org.apache.ibatis.annotations.Param;import tk.mybatis.mapper.common.Mapper;import java.util.List;
+import org.apache.ibatis.annotations.Param;
+import tk.mybatis.mapper.common.BaseMapper;
 
-/**
- * Created by Mybatis Generator 2019/01/16
- */
-public interface StoreGoodsMapper extends Mapper<StoreGoods> {
+import java.util.List;
+
+public interface StoreGoodsMapper extends BaseMapper<StoreGoods> {
     List<StoreGoods> findByStoreId(@Param("storeId") Long storeId);
+
+    int reduceInventory(@Param("goodsId") Long goodsId,@Param("reduceCount")int reduceCount);
 }

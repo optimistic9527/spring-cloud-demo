@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @author guoxingyong
  * @since 2019/1/16 15:18
  */
-public abstract class BeanUtil extends BeanUtils {
+public final class BeanUtil extends BeanUtils {
 
     /**
      * @param store not null store entity
