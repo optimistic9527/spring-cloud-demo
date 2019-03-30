@@ -28,3 +28,4 @@ hs_err_pid*
 parent.iml
 register/register.iml
 register/src/test/
+!/tm/txlcn-tm-5.0.2.RELEASE.jar
