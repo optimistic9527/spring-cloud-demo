@@ -47,13 +47,11 @@ logging:
     com.codingapi.txlcn: debug
     com.gxy.store.mapper: debug  #开启feign的debug进行调试，生产中关闭
     org.springframework.cloud.openfeign: debug
-# 默认之配置为TM的本机默认端口
-tx-lcn:
+eureka:
   client:
-    manager-address: 127.0.0.1:8070
-  logger:
-    enabled: true
-    driver-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-manager?characterEncoding=UTF-8
-    username: root
-    password: gxy123456.
+    service-url:
+      defaultZone: http://172.31.84.138:8761/eureka/
+  instance:
+    ip-address: 172.31.84.138
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}

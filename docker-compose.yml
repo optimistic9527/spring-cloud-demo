@@ -1,0 +1,64 @@
+version: "3"
+services:
+  docker_register:
+    build:
+      context: ./register
+      dockerfile: Dockerfile
+    container_name: "register_test"
+    ports:
+      - "8761:8761"
+  docker_config:
+    build:
+      context: ./config
+      dockerfile: Dockerfile
+    container_name: "config-test"
+    ports:
+      - "9000:9000"
+    depends_on:
+      - docker_register
+  docker_order:
+    build:
+      context: ./order/order-server
+      dockerfile: Dockerfile
+    container_name: "order-test"
+    restart: always
+    ports:
+      - "9001:9001"
+    depends_on:
+      - docker_register
+      - docker_config
+      - docker_tm
+  docker_store:
+    build:
+      context: ./store/store-server
+      dockerfile: Dockerfile
+    container_name: "store-test"
+    restart: always
+    ports:
+      - "9002:9002"
+    depends_on:
+      - docker_register
+      - docker_config
+      - docker_tm
+  docker_user:
+    build:
+      context: ./user/user-server
+      dockerfile: Dockerfile
+    container_name: "user-test"
+    restart: always
+    ports:
+      - "9003:9003"
+    depends_on:
+      - docker_register
+      - docker_config
+      - docker_tm
+  docker_tm:
+    build:
+      context: ./tm
+      dockerfile: Dockerfile
+    container_name: "tm"
+    ports:
+      - "7080:7080"
+      - "8070:8070"
+    network_mode: "host"
+

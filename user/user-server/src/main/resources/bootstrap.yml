@@ -45,3 +45,11 @@ logging:
     com.gxy.user.mapper: DEBUG
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://172.31.84.138:8761/eureka/
+  instance:
+    ip-address: 172.31.84.138
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}

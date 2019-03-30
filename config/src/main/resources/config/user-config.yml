@@ -4,19 +4,11 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: gxy123456.
-    url: jdbc:mysql://127.0.0.1:3306/user?characterEncoding=utf-8&useSSL=false
+    password: qaz123456.
+    url: jdbc:mysql://localhost:3306/user?characterEncoding=utf-8&useSSL=false
 logging:
   level:
     com.gxy.user.mapper: DEBUG
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${eureka.instance.ip-address}:${server.port}
 snowFlakeIdGenerator:
   workerId: 2
   dataCenterId: 2
