@@ -3,11 +3,11 @@ package com.gxy.order.contorller;
 import com.gxy.common.utils.SuccessUtil;
 import com.gxy.common.vo.ResultVO;
 import com.gxy.order.service.OrderMasterService;
-import com.gxy.store.client.StoreFeignClient;
-import com.gxy.store.dto.input.PurchaseDetail;
-import com.gxy.store.dto.output.UserInfoOutput;
+import com.gxy.store.common.client.StoreFeignClient;
+import com.gxy.store.common.qo.PurchaseDetailQuery;
+import com.gxy.store.common.vo.UserInfoVO;
 import com.gxy.user.client.UserFeignClient;
-import input.OrderInput;
+import com.gxy.order.common.qo.OrderQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,20 +35,20 @@ public class OrderMasterController {
      * 下单接口
      */
     @PostMapping("/addOrder")
-    public ResultVO addOrder(@Valid @RequestBody OrderInput orderInput) {
-        Long userId = orderInput.getUserId();
-        ResultVO<UserInfoOutput> userInfoOutputResultVO = userFeignClient.acquireUserInfo(userId);
+    public ResultVO addOrder(@Valid @RequestBody OrderQuery orderQuery) {
+        Long userId = orderQuery.getUserId();
+        ResultVO<UserInfoVO> userInfoOutputResultVO = userFeignClient.acquireUserInfo(userId);
         if (SuccessUtil.isFail(userInfoOutputResultVO)) {
             return userInfoOutputResultVO;
         }
-        Long storeId = orderInput.getStoreId();
+        Long storeId = orderQuery.getStoreId();
         ResultVO storeDetail = storeFeignClient.findStoreDetail(storeId);
         if (SuccessUtil.isFail(storeDetail)) {
             return storeDetail;
         }
         //todo check
-        List<PurchaseDetail> purchaseDetails = orderInput.getPurchaseDetails();
-        orderMasterService.addOrder(orderInput);
+        List<PurchaseDetailQuery> purchaseDetailQueries = orderQuery.getPurchaseDetailQueries();
+        orderMasterService.addOrder(orderQuery);
         return ResultVO.success();
     }
 }

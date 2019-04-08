@@ -3,11 +3,12 @@ package com.gxy.user.contorller;
 import com.gxy.common.enums.ResultCodeEnum;
 import com.gxy.common.utils.SnowFlakeIdGenerator;
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.dto.input.UserInfoInput;
-import com.gxy.store.dto.output.UserInfoOutput;
+import com.gxy.store.common.dto.UserInfo;
+import com.gxy.store.common.vo.UserInfoVO;
 import com.gxy.user.entity.User;
 import com.gxy.user.exception.UserException;
 import com.gxy.user.service.UserService;
+
 import com.gxy.user.utils.BeanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import static com.gxy.user.utils.BeanUtil.createUserInfoOutput;
+import static com.gxy.user.utils.BeanUtil.createUserInfoVO;
+
 
 /**
  * @author guoxingyong
@@ -30,19 +32,19 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{userId}")
-    public ResultVO<UserInfoOutput> acquireUserInfo(@PathVariable("userId") Long userId) {
+    public ResultVO<UserInfoVO> acquireUserInfo(@PathVariable("userId") Long userId) {
         User user = userService.findById(userId);
         if (user == null) {
             throw new UserException(ResultCodeEnum.USER_NOT_EXIST);
         }
-        return ResultVO.success(createUserInfoOutput(user));
+        return ResultVO.success(createUserInfoVO(user));
     }
 
     @PostMapping("/addUser")
-    public ResultVO addUser(@Valid @RequestBody UserInfoInput userInfoInput) {
+    public ResultVO addUser(@Valid @RequestBody UserInfo userInfo) {
         //fixme 沒有校驗唯一性,为了方便所以业务在这里写了，正式需要移动到Service中，其他同
         User user = new User();
-        BeanUtil.copyProperties(userInfoInput, user);
+        BeanUtil.copyProperties(userInfo, user);
         long id = snowFlakeIdGenerator.nextId();
         user.setUserId(id);
         user.setMoney(0);

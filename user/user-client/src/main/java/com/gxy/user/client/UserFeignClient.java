@@ -2,7 +2,7 @@ package com.gxy.user.client;
 
 import com.gxy.common.constant.ModuleConst;
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.dto.output.UserInfoOutput;
+import com.gxy.store.common.vo.UserInfoVO;
 import com.gxy.user.fallback.UserClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +21,6 @@ public interface UserFeignClient {
     String API_PATH = "/user";
 
     @RequestMapping(value = API_PATH + "/{userId}", method = RequestMethod.GET)
-    ResultVO<UserInfoOutput> acquireUserInfo(@PathVariable("userId") Long userId);
+    ResultVO<UserInfoVO> acquireUserInfo(@PathVariable("userId") Long userId);
 
 }

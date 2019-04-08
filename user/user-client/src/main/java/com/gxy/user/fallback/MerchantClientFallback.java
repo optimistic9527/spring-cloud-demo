@@ -1,8 +1,9 @@
 package com.gxy.user.fallback;
 
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.dto.input.MerchantInfoInput;
-import com.gxy.store.dto.output.MerchantInfoOutput;
+import com.gxy.store.common.dto.MerchantInfo;
+import com.gxy.store.common.vo.MerchantInfoVO;
+
 import com.gxy.user.client.MerchantFeignClient;
 import org.springframework.stereotype.Component;
 
@@ -14,12 +15,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class MerchantClientFallback implements MerchantFeignClient {
     @Override
-    public ResultVO<MerchantInfoOutput> acquireMerchantInfo(Long merchantId) {
+    public ResultVO<MerchantInfoVO> acquireMerchantInfo(Long merchantId) {
         return ResultVO.failure("获取商户信息失败，请稍后重试");
     }
 
     @Override
-    public ResultVO updateUser(MerchantInfoInput merchantInfoInput) {
+    public ResultVO updateUser(MerchantInfo merchantInfo) {
         return ResultVO.failure("修改商户信息失败，请稍后重试");
     }
 }

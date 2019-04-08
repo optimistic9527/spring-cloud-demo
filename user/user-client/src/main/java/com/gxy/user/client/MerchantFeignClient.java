@@ -2,8 +2,8 @@ package com.gxy.user.client;
 
 import com.gxy.common.constant.ModuleConst;
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.dto.input.MerchantInfoInput;
-import com.gxy.store.dto.output.MerchantInfoOutput;
+import com.gxy.store.common.dto.MerchantInfo;
+import com.gxy.store.common.vo.MerchantInfoVO;
 import com.gxy.user.fallback.MerchantClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +23,8 @@ public interface MerchantFeignClient {
     String API_PATH = "/merchant";
 
     @RequestMapping(value = API_PATH + "/{merchantId}", method = RequestMethod.GET)
-    ResultVO<MerchantInfoOutput> acquireMerchantInfo(@PathVariable("merchantId") Long merchantId);
+    ResultVO<MerchantInfoVO> acquireMerchantInfo(@PathVariable("merchantId") Long merchantId);
 
     @RequestMapping(value = API_PATH + "/updateMerchant", method = RequestMethod.POST)
-    ResultVO updateUser(@RequestBody MerchantInfoInput merchantInfoInput);
+    ResultVO updateUser(@RequestBody MerchantInfo merchantInfo);
 }

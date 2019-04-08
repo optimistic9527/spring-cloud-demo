@@ -1,8 +1,8 @@
 package com.gxy.user.utils;
 
 
-import com.gxy.store.dto.output.MerchantInfoOutput;
-import com.gxy.store.dto.output.UserInfoOutput;
+import com.gxy.store.common.vo.MerchantInfoVO;
+import com.gxy.store.common.vo.UserInfoVO;
 import com.gxy.user.entity.Merchant;
 import com.gxy.user.entity.User;
 import org.springframework.beans.BeanUtils;
@@ -19,11 +19,11 @@ public abstract class BeanUtil extends BeanUtils {
      * @param user user实体
      * @return UserInfoOutput
      */
-    public static UserInfoOutput createUserInfoOutput(User user) {
+    public static UserInfoVO createUserInfoVO(User user) {
         Objects.requireNonNull(user);
-        UserInfoOutput userInfoOutput = new UserInfoOutput();
-        copyProperties(user, userInfoOutput);
-        return userInfoOutput;
+        UserInfoVO userInfoVO = new UserInfoVO();
+        copyProperties(user, userInfoVO);
+        return userInfoVO;
     }
 
 
@@ -31,10 +31,10 @@ public abstract class BeanUtil extends BeanUtils {
      * @param merchant merchant实体
      * @return MerchantInfoOutput
      */
-    public static MerchantInfoOutput createMerchantInfoOutput(Merchant merchant) {
+    public static MerchantInfoVO createMerchantInfoVO(Merchant merchant) {
         Objects.requireNonNull(merchant);
-        MerchantInfoOutput merchantInfoOutput = new MerchantInfoOutput();
-        copyProperties(merchant, merchantInfoOutput);
-        return merchantInfoOutput;
+        MerchantInfoVO merchantInfoVO = new MerchantInfoVO();
+        copyProperties(merchant, merchantInfoVO);
+        return merchantInfoVO;
     }
 }

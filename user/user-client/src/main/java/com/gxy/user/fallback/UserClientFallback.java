@@ -1,7 +1,7 @@
 package com.gxy.user.fallback;
 
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.dto.output.UserInfoOutput;
+import com.gxy.store.common.vo.UserInfoVO;
 import com.gxy.user.client.UserFeignClient;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserClientFallback implements UserFeignClient {
     @Override
-    public ResultVO<UserInfoOutput> acquireUserInfo(Long userId) {
+    public ResultVO<UserInfoVO> acquireUserInfo(Long userId) {
         return ResultVO.failure("获取用户信息失败，请稍后重试");
     }
 }

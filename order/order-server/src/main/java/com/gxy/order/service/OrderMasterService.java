@@ -9,9 +9,9 @@ import com.gxy.order.entity.OrderDetail;
 import com.gxy.order.entity.OrderMaster;
 import com.gxy.order.exception.OrderException;
 import com.gxy.order.mapper.OrderMasterMapper;
-import com.gxy.store.client.StoreGoodsClient;
-import com.gxy.store.dto.input.PurchaseDetail;
-import input.OrderInput;
+import com.gxy.store.common.client.StoreGoodsClient;
+import com.gxy.store.common.qo.PurchaseDetailQuery;
+import com.gxy.order.common.qo.OrderQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,10 +35,10 @@ public class OrderMasterService extends BaseService<OrderMasterMapper, OrderMast
 
     @LcnTransaction
     @Transactional(rollbackFor = Exception.class)
-    public void addOrder(OrderInput orderInput) {
-        List<PurchaseDetail> purchaseDetails = orderInput.getPurchaseDetails();
+    public void addOrder(OrderQuery orderQuery) {
+        List<PurchaseDetailQuery> purchaseDetailQueries = orderQuery.getPurchaseDetailQueries();
         //减少库存
-        ResultVO resultVO = storeGoodsClient.reduceInventory(purchaseDetails);
+        ResultVO resultVO = storeGoodsClient.reduceInventory(purchaseDetailQueries);
         if (SuccessUtil.isFail(resultVO)) {
             throw new OrderException("减少库存失败");
         }
@@ -46,13 +46,13 @@ public class OrderMasterService extends BaseService<OrderMasterMapper, OrderMast
         OrderMaster orderMaster = new OrderMaster();
         long orderId = snowFlakeIdGenerator.nextId();
         orderMaster.setOrderId(orderId);
-        orderMaster.setUserId(orderInput.userId);
-        orderMaster.setStoreId(orderInput.getStoreId());
+        orderMaster.setUserId(orderQuery.userId);
+        orderMaster.setStoreId(orderQuery.getStoreId());
         orderMaster.setOrderTime(LocalDateTime.now());
         orderMaster.setOrderStatus(1);
         add(orderMaster);
         //创建订单详情
-        List<OrderDetail> orderDetailList = purchaseDetails.stream().map(orderDetailInput -> {
+        List<OrderDetail> orderDetailList = purchaseDetailQueries.stream().map(orderDetailInput -> {
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrderDetailId(snowFlakeIdGenerator.nextId());
             orderDetail.setGoodsId(orderDetailInput.getGoodsId());
