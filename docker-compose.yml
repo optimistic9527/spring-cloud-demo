@@ -5,6 +5,7 @@ services:
       context: ./register
       dockerfile: Dockerfile
     container_name: "register_test"
+    restart: always
     ports:
       - "8761:8761"
   docker_config:
@@ -12,10 +13,22 @@ services:
       context: ./config
       dockerfile: Dockerfile
     container_name: "config-test"
+    restart: always
     ports:
       - "9000:9000"
     depends_on:
       - docker_register
+  docker_gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    container_name: "gateway-test"
+    restart: always
+    ports:
+      - "9090:9090"
+    depends_on:
+      - docker_register
+      - docker_config
   docker_order:
     build:
       context: ./order/order-server
