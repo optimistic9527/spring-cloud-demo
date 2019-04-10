@@ -1,7 +1,7 @@
 package com.gxy.user.fallback;
 
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.common.vo.UserInfoVO;
+import com.gxy.store.vo.UserInfoVO;
 import com.gxy.user.client.UserFeignClient;
 import org.springframework.stereotype.Component;
 

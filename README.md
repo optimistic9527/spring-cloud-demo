@@ -3,7 +3,7 @@
 
 ### **技术选型**
 - 核心框架: SpringBoot2.0.3
-    1.分布式事物采用框架[EasyTransaction](https://github.com/QNJR-GROUP/EasyTransaction),选择原因:[分布式事务框架压测](http://springcloud.cn/view/374)
+    1.分布式事物采用框架[tx-lcn](https://github.com/QNJR-GROUP/EasyTransaction),选择原因:[分布式事务框架压测](http://springcloud.cn/view/374)
 - 微服务框架:springCloud.Finchley.RELEASE
 - 数据持久层框架:mybatis
 - mybatis单表操作简化操作: tk.mapper
@@ -13,6 +13,8 @@
 - 缓存:redis
 - 日志:SLF4J+Logback
 - 工具:FastJson
+
+
 
 
 

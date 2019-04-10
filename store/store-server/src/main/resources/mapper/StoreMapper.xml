@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gxy.store.common.mapper.StoreMapper">
-    <resultMap id="BaseResultMap" type="com.gxy.store.common.entity.Store">
+<mapper namespace="com.gxy.store.mapper.StoreMapper">
+    <resultMap id="BaseResultMap" type="com.gxy.store.entity.Store">
         <!--
           WARNING - @mbg.generated
         -->
@@ -10,12 +10,12 @@
         <result column="describe" jdbcType="VARCHAR" property="describe"/>
         <result column="merchant_id" jdbcType="BIGINT" property="merchantId"/>
     </resultMap>
-    <resultMap id="StoreDTOResultMap" type="com.gxy.store.common.dto.StoreDTO">
+    <resultMap id="StoreDTOResultMap" type="com.gxy.store.dto.StoreDTO">
         <result property="storeId" column="store_id"/>
         <result property="name" column="name"/>
         <result property="describe" column="describe"/>
         <result property="merchantId" column="merchant_id"/>
-        <collection property="storeGoodsList" resultMap="com.gxy.store.common.mapper.StoreGoodsMapper.BaseResultMap"/>
+        <collection property="storeGoodsList" resultMap="com.gxy.store.mapper.StoreGoodsMapper.BaseResultMap"/>
     </resultMap>
 
     <sql id="Base_Column_List">

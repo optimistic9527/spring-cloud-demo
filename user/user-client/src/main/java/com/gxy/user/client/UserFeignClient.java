@@ -2,7 +2,7 @@ package com.gxy.user.client;
 
 import com.gxy.common.constant.ModuleConst;
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.common.vo.UserInfoVO;
+import com.gxy.store.vo.UserInfoVO;
 import com.gxy.user.fallback.UserClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;

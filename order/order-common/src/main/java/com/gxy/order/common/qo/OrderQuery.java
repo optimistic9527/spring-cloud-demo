@@ -1,6 +1,6 @@
 package com.gxy.order.common.qo;
 
-import com.gxy.store.common.qo.PurchaseDetailQuery;
+import com.gxy.store.qo.PurchaseDetailQuery;
 import lombok.Data;
 
 import javax.validation.Valid;

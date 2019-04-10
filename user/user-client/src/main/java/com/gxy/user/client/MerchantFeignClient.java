@@ -2,8 +2,8 @@ package com.gxy.user.client;
 
 import com.gxy.common.constant.ModuleConst;
 import com.gxy.common.vo.ResultVO;
-import com.gxy.store.common.dto.MerchantInfo;
-import com.gxy.store.common.vo.MerchantInfoVO;
+import com.gxy.store.dto.MerchantInfo;
+import com.gxy.store.vo.MerchantInfoVO;
 import com.gxy.user.fallback.MerchantClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,8 +1,8 @@
 package com.gxy.user.utils;
 
 
-import com.gxy.store.common.vo.MerchantInfoVO;
-import com.gxy.store.common.vo.UserInfoVO;
+import com.gxy.store.vo.MerchantInfoVO;
+import com.gxy.store.vo.UserInfoVO;
 import com.gxy.user.entity.Merchant;
 import com.gxy.user.entity.User;
 import org.springframework.beans.BeanUtils;
