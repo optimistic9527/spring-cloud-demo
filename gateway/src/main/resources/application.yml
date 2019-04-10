@@ -1,0 +1,40 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: user
+          uri: lb://user
+          predicates:
+          - Path=/api-user/**
+          filters:
+            - StripPrefix=1
+        - id: store
+          uri: lb://store
+          predicates:
+            - Path=/api-store/**
+          filters:
+            - StripPrefix=1
+        - id: order
+          uri: lb://order
+          predicates:
+            - Path=/api-order/**
+          filters:
+            - StripPrefix=1
+server:
+  port: 9090
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
